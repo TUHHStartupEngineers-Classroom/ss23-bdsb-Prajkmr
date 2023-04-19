@@ -1,5 +1,5 @@
 ---
-title: "My Lab Journal-TEST"
+title: "My Lab Journal"
 subtitle: "Business Data Science Basics"
 author: "Prajwal Kumar,Koretagere Vijay Kumar"
 ---
