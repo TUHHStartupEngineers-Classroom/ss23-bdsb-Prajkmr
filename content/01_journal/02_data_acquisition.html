@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.335">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Joschka Schwarz">
-
+<meta name="author" content="Prajwal Kumar,Koretagere Vijay Kumar">
 <title>MyLabJournal - Data Acquisition</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,8 +18,70 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
-
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
@@ -43,7 +102,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -61,17 +122,13 @@ ul.task-list li input[type="checkbox"] {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-
-
+}</script><link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">MyLabJournal</span>
@@ -82,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../index.html">
  <span class="menu-text">Home</span></a>
   </li>  
@@ -90,8 +147,8 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-journal" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Journal</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-journal">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-journal">
+<li>
     <a class="dropdown-item" href="../../content/01_journal/01_tidyverse.html">
  <span class="dropdown-text">01 Tidyverse</span></a>
   </li>  
@@ -108,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">04 Data Visualization</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="../../content/02_notes/05_class_notes.html">
  <span class="menu-text">Class notes</span></a>
@@ -118,26 +175,35 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Links</span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
+<div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
               </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+<li>
+<a href="#challenge" id="toc-challenge" class="nav-link active" data-scroll-target="#challenge"><span class="toc-section-number">1</span>  Challenge:</a>
+  <ul class="collapse">
+<li><a href="#get-some-data-via-an-api." id="toc-get-some-data-via-an-api." class="nav-link" data-scroll-target="#get-some-data-via-an-api."><span class="toc-section-number">1.1</span>  Get some data via an API.</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1"><span class="toc-section-number">2</span>  Challenge:</a>
+  <ul class="collapse">
+<li><a href="#scrape-one-of-the-competitor-websites-of-canyon" id="toc-scrape-one-of-the-competitor-websites-of-canyon" class="nav-link" data-scroll-target="#scrape-one-of-the-competitor-websites-of-canyon"><span class="toc-section-number">2.1</span>  Scrape one of the competitor websites of canyon</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Data Acquisition</h1>
 </div>
 
@@ -148,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Joschka Schwarz </p>
+             <p>Prajwal Kumar,Koretagere Vijay Kumar </p>
           </div>
   </div>
     
@@ -157,26 +223,216 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-</header>
+</header><section id="challenge" class="level1" data-number="1"><h1 data-number="1">
+<span class="header-section-number">1</span> Challenge:</h1>
+<section id="get-some-data-via-an-api." class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="get-some-data-via-an-api.">
+<span class="header-section-number">1.1</span> Get some data via an API.</h2>
+<p>There exists an api provider <a href="https://anyapi.io/" class="uri">https://anyapi.io/</a> for several features, In my case, This API returns the latest currency conversion from one base currency to another. Here the base currency is EUR, To/converting currency is INR. Option to enter the amount/unit (in base currency) is given too.</p>
+<p>Change the API request params (base, to &amp; amount) in the api request to check for other popular currencies, for example: Try for USD to EUR.</p>
+<p><em>Code below</em></p>
+<pre><code><a href="https://arxiv.org/abs/1403.2805">library(jsonlite)
+token &lt;- "hafkonmbi2gq2jta8s6jo8551pppnma5gamas1kh6r84pubbep7um8"
+curr &lt;- GET(glue("https://anyapi.io/api/vl/exchange/convert?base=EUR&amp;to=INR&amp;amount=10&amp;apiKey={token}"))
+curr_list&lt;- fromJSON(rawToChar(curr$content))
+curr_list</a></code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="../../assets/img/data acquisition_1.png" class="lightbox" title="Results for challenge 1" data-gallery="quarto-lightbox-gallery-1"><img src="../../assets/img/data acquisition_1.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Results for challenge 1</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Observation
+<ul>
+<li>We can notice that the Base currency is “EUR”, the conversion currency is “INR” &amp; the amount is “10”Euros.</li>
+</ul>
+</li>
+<li>Output
+<ul>
+<li>The API returns the converted value (903.31 INR) and also the rate of conversion (1 EUR= 90.331 INR in the above case).</li>
+</ul>
+</li>
+</ul></section></section><section id="challenge-1" class="level1" data-number="2"><h1 data-number="2">
+<span class="header-section-number">2</span> Challenge:</h1>
+<section id="scrape-one-of-the-competitor-websites-of-canyon" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="scrape-one-of-the-competitor-websites-of-canyon">
+<span class="header-section-number">2.1</span> Scrape one of the competitor websites of canyon</h2>
+<div class="cell" data-hash="02_data_acquisition_cache/html/unnamed-chunk-1_1cc9b336ca4d6207303668e2d3232798">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(RSQLite)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+#&gt; ✔ dplyr     1.1.1     ✔ readr     2.1.4
+#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.0
+#&gt; ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+#&gt; ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+#&gt; ✔ purrr     1.0.1     
+#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+#&gt; ✖ dplyr::filter() masks stats::filter()
+#&gt; ✖ dplyr::lag()    masks stats::lag()
+#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">library</span>(glue)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">library</span>(jsonlite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; 
+#&gt; Attaching package: 'jsonlite'
+#&gt; 
+#&gt; The following object is masked from 'package:purrr':
+#&gt; 
+#&gt;     flatten</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; 
+#&gt; Attaching package: 'rvest'
+#&gt; 
+#&gt; The following object is masked from 'package:readr':
+#&gt; 
+#&gt;     guess_encoding</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(stringi)</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">library</span>(xopen)</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-4"><a href="#cb8-4"></a>base_url <span class="ot">&lt;-</span> <span class="st">'https://www.rosebikes.com/bikes'</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co"># 1. Function to get bike family URLs.</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>get_bike_family_urls <span class="ot">&lt;-</span> <span class="cf">function</span>(base_url) {</span>
+<span id="cb8-7"><a href="#cb8-7"></a>  </span>
+<span id="cb8-8"><a href="#cb8-8"></a>  bike_family_urls <span class="ot">&lt;-</span> <span class="fu">read_html</span>(base_url) <span class="sc">%&gt;%</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>    <span class="fu">html_nodes</span>(<span class="at">css =</span> <span class="st">".catalog-categories-item &gt; a"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>    <span class="fu">html_attr</span>(<span class="st">'href'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>    </span>
+<span id="cb8-12"><a href="#cb8-12"></a>    <span class="co"># Convert vector to tibble</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a>    </span>
+<span id="cb8-14"><a href="#cb8-14"></a>    <span class="fu">enframe</span>(<span class="at">name =</span> <span class="st">"position"</span>, <span class="at">value =</span> <span class="st">"subdirectory"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a>    <span class="co"># Add the domain because we will get only the subdirectories</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb8-17"><a href="#cb8-17"></a>      <span class="at">url =</span> <span class="fu">glue</span>(<span class="st">'https://www.rosebikes.com{subdirectory}'</span>)</span>
+<span id="cb8-18"><a href="#cb8-18"></a>    ) </span>
+<span id="cb8-19"><a href="#cb8-19"></a>  </span>
+<span id="cb8-20"><a href="#cb8-20"></a>  bike_family_urls <span class="ot">&lt;-</span> bike_family_urls <span class="sc">%&gt;%</span> </span>
+<span id="cb8-21"><a href="#cb8-21"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">'sale'</span>, url)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">'kids'</span>, url))</span>
+<span id="cb8-23"><a href="#cb8-23"></a>  bike_family_urls <span class="ot">&lt;-</span> bike_family_urls[<span class="st">'url'</span>]</span>
+<span id="cb8-24"><a href="#cb8-24"></a>  </span>
+<span id="cb8-25"><a href="#cb8-25"></a>}</span>
+<span id="cb8-26"><a href="#cb8-26"></a><span class="co"># 2. Function to get bike family URLs.</span></span>
+<span id="cb8-27"><a href="#cb8-27"></a>get_model_urls <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
+<span id="cb8-28"><a href="#cb8-28"></a>  </span>
+<span id="cb8-29"><a href="#cb8-29"></a>  bike_type_url <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url) <span class="sc">%&gt;%</span></span>
+<span id="cb8-30"><a href="#cb8-30"></a>    <span class="fu">html_nodes</span>(<span class="at">css =</span> <span class="st">".catalog-category-bikes__content &gt; a"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-31"><a href="#cb8-31"></a>    <span class="fu">html_attr</span>(<span class="st">'href'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-32"><a href="#cb8-32"></a>    <span class="fu">enframe</span>(<span class="at">name =</span> <span class="st">"position"</span>, <span class="at">value =</span> <span class="st">"url"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-33"><a href="#cb8-33"></a>    <span class="fu">mutate</span>(<span class="at">url =</span> <span class="fu">glue</span>(<span class="st">'https://www.rosebikes.com{url}'</span>)) </span>
+<span id="cb8-34"><a href="#cb8-34"></a>}</span>
+<span id="cb8-35"><a href="#cb8-35"></a><span class="co"># 3. Function to get the names of each bike </span></span>
+<span id="cb8-36"><a href="#cb8-36"></a>get_bike_names <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
+<span id="cb8-37"><a href="#cb8-37"></a>  </span>
+<span id="cb8-38"><a href="#cb8-38"></a>  bike_model_name_tbl <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url) <span class="sc">%&gt;%</span></span>
+<span id="cb8-39"><a href="#cb8-39"></a>    <span class="fu">html_nodes</span>(<span class="at">css =</span> <span class="st">".catalog-category-model__title"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-40"><a href="#cb8-40"></a>    <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-41"><a href="#cb8-41"></a>    <span class="co"># Convert vector to tibble</span></span>
+<span id="cb8-42"><a href="#cb8-42"></a>    <span class="fu">as_tibble</span>()</span>
+<span id="cb8-43"><a href="#cb8-43"></a>  </span>
+<span id="cb8-44"><a href="#cb8-44"></a>  </span>
+<span id="cb8-45"><a href="#cb8-45"></a>}</span>
+<span id="cb8-46"><a href="#cb8-46"></a><span class="co"># 4. Function to get the prices of each bike </span></span>
+<span id="cb8-47"><a href="#cb8-47"></a>get_bike_prices <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
+<span id="cb8-48"><a href="#cb8-48"></a>  </span>
+<span id="cb8-49"><a href="#cb8-49"></a>  bike_model_price_tbl <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url) <span class="sc">%&gt;%</span></span>
+<span id="cb8-50"><a href="#cb8-50"></a>    <span class="fu">html_nodes</span>(<span class="at">css =</span> <span class="st">".product-tile-price__current-value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-51"><a href="#cb8-51"></a>    <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-52"><a href="#cb8-52"></a>    <span class="co"># Convert vector to tibble</span></span>
+<span id="cb8-53"><a href="#cb8-53"></a>    <span class="fu">as_tibble</span>()</span>
+<span id="cb8-54"><a href="#cb8-54"></a>  </span>
+<span id="cb8-55"><a href="#cb8-55"></a>}</span>
+<span id="cb8-56"><a href="#cb8-56"></a><span class="do">#### APPLYING ABOVE FUNCTIONS</span></span>
+<span id="cb8-57"><a href="#cb8-57"></a>bike_family_url_tbl <span class="ot">&lt;-</span> <span class="fu">get_bike_family_urls</span>(base_url)</span>
+<span id="cb8-58"><a href="#cb8-58"></a>bike_family_url_tbl <span class="ot">&lt;-</span> bike_family_url_tbl <span class="sc">%&gt;%</span></span>
+<span id="cb8-59"><a href="#cb8-59"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="co"># Pick 3 categories</span></span>
+<span id="cb8-60"><a href="#cb8-60"></a><span class="co"># Create a table with bike model URLS</span></span>
+<span id="cb8-61"><a href="#cb8-61"></a>bike_model_url_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb8-62"><a href="#cb8-62"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(bike_family_url_tbl<span class="sc">$</span>url)) {</span>
+<span id="cb8-63"><a href="#cb8-63"></a>  </span>
+<span id="cb8-64"><a href="#cb8-64"></a>  web <span class="ot">&lt;-</span> <span class="fu">toString</span>(bike_family_url_tbl<span class="sc">$</span>url[i])</span>
+<span id="cb8-65"><a href="#cb8-65"></a>  bike_model_url_tbl <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(bike_model_url_tbl, <span class="fu">get_model_urls</span>(web))</span>
+<span id="cb8-66"><a href="#cb8-66"></a>  </span>
+<span id="cb8-67"><a href="#cb8-67"></a>}</span>
+<span id="cb8-68"><a href="#cb8-68"></a><span class="co"># Create a table with bike model names</span></span>
+<span id="cb8-69"><a href="#cb8-69"></a>bike_model_names_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb8-70"><a href="#cb8-70"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(bike_model_url_tbl<span class="sc">$</span>url)) {</span>
+<span id="cb8-71"><a href="#cb8-71"></a>  </span>
+<span id="cb8-72"><a href="#cb8-72"></a>  web <span class="ot">&lt;-</span> <span class="fu">toString</span>(bike_model_url_tbl<span class="sc">$</span>url[i])</span>
+<span id="cb8-73"><a href="#cb8-73"></a>  bike_model_names_tbl <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(bike_model_names_tbl, <span class="fu">get_bike_names</span>(web))</span>
+<span id="cb8-74"><a href="#cb8-74"></a>  </span>
+<span id="cb8-75"><a href="#cb8-75"></a>}</span>
+<span id="cb8-76"><a href="#cb8-76"></a><span class="co"># Rename cols</span></span>
+<span id="cb8-77"><a href="#cb8-77"></a><span class="fu">names</span>(bike_model_names_tbl)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Bike Model"</span></span>
+<span id="cb8-78"><a href="#cb8-78"></a><span class="co"># Create a table with bike prices</span></span>
+<span id="cb8-79"><a href="#cb8-79"></a>bike_model_prices_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb8-80"><a href="#cb8-80"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(bike_model_url_tbl<span class="sc">$</span>url)) {</span>
+<span id="cb8-81"><a href="#cb8-81"></a>  web <span class="ot">&lt;-</span> <span class="fu">toString</span>(bike_model_url_tbl<span class="sc">$</span>url[i])</span>
+<span id="cb8-82"><a href="#cb8-82"></a>  bike_model_prices_tbl <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(bike_model_prices_tbl, <span class="fu">get_bike_prices</span>(web))</span>
+<span id="cb8-83"><a href="#cb8-83"></a>}</span>
+<span id="cb8-84"><a href="#cb8-84"></a><span class="co"># Rename cols</span></span>
+<span id="cb8-85"><a href="#cb8-85"></a><span class="fu">names</span>(bike_model_prices_tbl)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Bike Prices"</span></span>
+<span id="cb8-86"><a href="#cb8-86"></a><span class="co"># Join into one table</span></span>
+<span id="cb8-87"><a href="#cb8-87"></a>table_of_prices <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(bike_model_names_tbl,bike_model_prices_tbl)</span>
+<span id="cb8-88"><a href="#cb8-88"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_of_prices[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, ], <span class="at">caption =</span> <span class="st">'Rosebike.com bicycle prices'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Rosebike.com bicycle prices</caption>
+<thead><tr class="header">
+<th style="text-align: left;">Bike Model</th>
+<th style="text-align: left;">Bike Prices</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">COUNT SOLO 1</td>
+<td style="text-align: left;">€749.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">COUNT SOLO 2</td>
+<td style="text-align: left;">€849.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COUNT SOLO 3</td>
+<td style="text-align: left;">€949.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PSYCHO PATH 1</td>
+<td style="text-align: left;">€1,499.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PSYCHO PATH 2</td>
+<td style="text-align: left;">€1,799.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">THRILL HILL 4</td>
+<td style="text-align: left;">€5,499.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">THRILL HILL 5</td>
+<td style="text-align: left;">€6,699.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">THRILL HILL 1</td>
+<td style="text-align: left;">€2,999.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">THRILL HILL 2</td>
+<td style="text-align: left;">€3,399.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">THRILL HILL 3</td>
+<td style="text-align: left;">€3,999.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can delete everything in here and start fresh.</p>
-</div>
-</div>
 
-
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -425,7 +681,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","loop":true,"selector":".lightbox"});</script>
 
 
 </body></html>
